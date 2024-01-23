@@ -1,11 +1,6 @@
 #include "sort.h"
 #include <stdio.h>
-/**
- *_calloc - this is a calloc function
- *@nmemb: number of elemets
- *@size: bit size of each element
- *Return: pointer to memory assignement
- */
+
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int i = 0;
@@ -20,18 +15,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		p[i] = '\0';
 	return (p);
 }
-/**
- *merge - make a merge
- *@arr: one from start to mid
- *@tmp: temp array used in merge, was created outside to
- *optimize reducing the system calls
- *@start: first element position
- *@mid: array middle
- *@end: last element position
- **/
+
 void merge(int *arr, int *tmp, int start, int mid, int end)
 {
-	/*  sizes and temp arrays */
+	
 	int size_left = mid - start + 1, size_right = end - mid;
 	int *array_left, *array_right;
 	/* counters */
@@ -44,7 +31,7 @@ void merge(int *arr, int *tmp, int start, int mid, int end)
 	for (right = 0; right < size_right; right++)
 		array_right[right] = arr[mid + 1 + right];
 	left = 0, right = 0, i = start;
-	/* merging tmp arrays into main array*/
+	
 	while (left < size_left && right < size_right)
 	{
 		if (array_left[left] <= array_right[right])
@@ -53,10 +40,10 @@ void merge(int *arr, int *tmp, int start, int mid, int end)
 			arr[i] = array_right[right], right++;
 		i++;
 	}
-	/* merging remaining left array into main array*/
+	
 	while (left < size_left)
 		arr[i] = array_left[left], left++, i++;
-	/* merging remaining right array into main array*/
+	
 	while (right < size_right)
 		arr[i] = array_right[right], right++, i++;
 	printf("Merging...\n");
@@ -67,16 +54,7 @@ void merge(int *arr, int *tmp, int start, int mid, int end)
 	printf("[Done]: ");
 	print_array(&arr[start], left + right);
 }
-/**
- *mergesort - function that sorts an array of integers
- *in ascending order using the Merge sort algorithm
- *@array: array of integers
- *@tmp: temp array used in merge, was created outside to
- *optimize reducing the system calls
- *@start: fisrt element position
- *@end: last element position
- *Return: void
- */
+
 void mergesort(int *array, int *tmp, int start, int end)
 {
 	int mid;
@@ -91,13 +69,7 @@ void mergesort(int *array, int *tmp, int start, int end)
 		merge(array, tmp, start, mid, end);
 	}
 }
-/**
- *merge_sort - function that sorts an array of integers
- *in ascending order using the Merge sort algorithm
- *@size: size of the list
- *@array: array of integers
- *Return: void
- */
+
 void merge_sort(int *array, size_t size)
 {
 	int *tmp;
