@@ -1,11 +1,6 @@
 #include "sort.h"
 #include <stdio.h>
-/**
- *_calloc - this is a calloc function
- *@nmemb: number of elemets
- *@size: bit size of each element
- *Return: pointer to memory assignement
- */
+
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int i = 0;
@@ -21,9 +16,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	return (p);
 }
 /**
- * counting_sort - this is a counting sort method implementation
- * @array: array to sort
- * @size: array size
+ * counting_sort
  */
 void counting_sort(int *array, size_t size)
 {
