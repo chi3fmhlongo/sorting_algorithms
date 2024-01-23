@@ -1,11 +1,6 @@
 #include "deck.h"
 #include <stdio.h>
-/**
- *_strcmp - compare two strings
- *@str1: string
- *@str2: string
- *Return: 1 str1 and str2 is equal, 0 they are not equal
- */
+
 int _strcmp(const char *str1, char *str2)
 {
 	size_t i = 0;
@@ -22,11 +17,7 @@ int _strcmp(const char *str1, char *str2)
 		return (0);
 	return (1);
 }
-/**
- * get_card_position - return the position based on card you put in
- * @node: represent the card
- * Return: return the card position
- */
+
 int get_card_position(deck_node_t *node)
 {
 	int value;
@@ -48,12 +39,7 @@ int get_card_position(deck_node_t *node)
 	value += (*node).card->kind * 13;
 	return (value);
 }
-/**
- *swap_card - swap a card for his previous one
- *@card: card
- *@deck: card deck
- *Return: return a pointer to a card which was enter it
- */
+
 deck_node_t *swap_card(deck_node_t *card, deck_node_t **deck)
 {
 	deck_node_t *back = card->prev, *current = card;
@@ -72,11 +58,6 @@ deck_node_t *swap_card(deck_node_t *card, deck_node_t **deck)
 	return (current);
 }
 
-/**
- * insertion_sort_deck - function that sorts a doubly linked deck
- * of integers in ascending order using the Insertion sort algorithm
- * @deck: Dobule linked deck to sort
- */
 void insertion_sort_deck(deck_node_t **deck)
 {
 	int value_prev, value_current;
@@ -103,11 +84,6 @@ void insertion_sort_deck(deck_node_t **deck)
 		node = node->next;
 	}
 }
-/**
- * sort_deck - sort a deck you put in using
- * insertion sort algorithm
- * @deck: deck
- */
 void sort_deck(deck_node_t **deck)
 {
 	insertion_sort_deck(deck);
